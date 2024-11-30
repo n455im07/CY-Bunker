@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <ncurses.h>
 
 void slowPrint(char* words,int speed){
 	while(*words){
