@@ -52,11 +52,16 @@ if [ "$consumer_type" != "comp" ] && [ "$consumer_type" != "indiv" ] && [ "$cons
     help_manual
     exit 1
 fi
-if [ "$consumer_type" != "comp" ] && [ $station_type != "lv" ] ; then
+if [ "$consumer_type" != "comp" ] && [ $station_type != "lv" ]; then
     echo "Error : Forbidden option, only comp are linked to HV-B and HV-A stations."
     help_manual
     exit 1
 fi
 
 # Power plant id (optional)
-power_plant_id=$4
+power_plant_id=$4 ## check if it's a number plsss
+
+if [ ! -x exec ]; then
+    echo "Executable doesn't exist."
+    ## compilation + verification ( ? make ?)
+fi
