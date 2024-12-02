@@ -9,6 +9,14 @@ function help_manual() {
     echo "Option : -h : Display help manual"
 }
 
+# Help if -h option is used
+for arg in "$@";do
+    if [ "$arg" == "-h" ];then
+        help_manual
+        exit 1
+    fi
+done
+
 # Check if the number of arguments is correct
 if  [ $# -eq 0 ]; then
     echo "Error : No argument provided."
@@ -52,6 +60,3 @@ fi
 
 # Power plant id (optional)
 power_plant_id=$4
-
-# Help option (optional)
-# ?bool ? (-h) ## DOIT S'AFFICHER SI Y'A UNE ERREUR QUELCONQUE
