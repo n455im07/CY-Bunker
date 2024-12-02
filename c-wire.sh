@@ -68,5 +68,14 @@ if [ ! -x exec ]; then
 fi
 
 # Check if tmp directory exists
+if [ ! -d tmp ]; then
+    mkdir tmp
+else 
+    rm -rf tmp/*
+fi
 
 # Check if graphs directory exists
+
+if [ ! -d graphs ]; then
+    mkdir graphs
+fi
