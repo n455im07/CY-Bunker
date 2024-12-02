@@ -61,7 +61,12 @@ fi
 # Power plant id (optional)
 power_plant_id=$4 ## check if it's a number plsss
 
+# Check if the executable exists
 if [ ! -x exec ]; then
     echo "Executable doesn't exist."
     ## compilation + verification ( ? make ?)
 fi
+
+# Check if tmp directory exists
+
+# Check if graphs directory exists
