@@ -10,6 +10,9 @@ typedef struct AVL{
 
 AVL* createAVL(int data){
     AVL* new = malloc(sizeof(AVL));
+    if(new==NULL){
+        exit(1);
+    }
     new->data = data;
     new->balance = 0;
     new->left = NULL;
