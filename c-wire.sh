@@ -79,3 +79,10 @@ fi
 if [ ! -d graphs ]; then
     mkdir graphs
 fi
+
+
+
+# show time
+# graph : gnuplot
+# create file station list
+# create avl in C
