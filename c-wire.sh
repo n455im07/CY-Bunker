@@ -39,4 +39,4 @@ fi
 power_plant_id=$4
 
 # Help option (optional)
-# ?bool ? (-h)
+# ?bool ? (-h) ## DOIT S'AFFICHER SI Y'A UNE ERREUR QUELCONQUE
