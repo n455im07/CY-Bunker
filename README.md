@@ -4,6 +4,8 @@ Developed by ABAJOU Sofyane, EL JARJINI Hicham and JAMHOUR Nassim.
 Original subject : [C-WIRE](Documents/subject.pdf) <br>
 Project report : [PDF](report.pdf) <br>
 
+https://stackoverflow.com/questions/16908084/bash-script-to-calculate-time-elapsed
+
 ## Instructions
 
 1. **Before installing**
