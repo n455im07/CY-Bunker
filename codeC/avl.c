@@ -243,8 +243,8 @@ int main(int argc, char* argv[]){
    
    // FREE AVL !!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    if ( argc != 2){
-        printf("Error mauvais nombres d'argumpent");
+    if ( argc != 5){
+        printf("Error wrong arguments number");
      exit(2);
     }
    
