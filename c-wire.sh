@@ -150,28 +150,24 @@ clear
 	fi
 
 
-
-
 # Initialize duration
-duration=0
 
-start_timer=$(date +%s.%N)
+# IF ERROR TIME ELAPSED = 0s
+start_timer=$(date +%s)
 
-
-if commande à mettre ici; then
-    #start time if condition succesful
-    end_time=$(date +%s.%N)
-    duration=$(echo "$end_time - $start_timer" | bc) #bc convert nano to seconds 
-else
-    echo "Error : task failed."
-    duration=0
-fi
-
-#print Treatment time
-printf "Treatment time: %.1fsec\n" "$duration"
+# PROGRAMM
 
 
 
 # graph : gnuplot
 # create file station list
 # create avl in C
+
+
+
+end_time=$(date +%s)
+duration=$(($end_time - $start_timer)) #bc convert nano to seconds 
+
+
+#print Treatment time
+echo "Treatment time: $duration seconds"
