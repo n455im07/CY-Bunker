@@ -33,7 +33,7 @@ clear
 		slow_print "   #1 : CSV File"
 		slow_print "   #2 : Station type ( hva, hvb, lv )" 
 		slow_print "   #3 : Consumer type ( comp, indiv, all )   Note : comp is only works with hva or hvb in #2."
-		slow_print "   #4 : Power plant id"
+		slow_print "   #4 : Power plant id > 0"
 		slow_print "Option : -h : Display help manual"
 		slow_print "   -h : Display help manual"
 	}
@@ -61,10 +61,10 @@ clear
 #----Help if -h option is used
 
 	for arg in "$@";do
-	    if [ "$arg" == "-h" ];then
-		help_manual
-		exit 1
-	    fi
+		if [ "$arg" == "-h" ];then
+			help_manual
+			exit 1
+		fi
 	done
 
 #----Check if the number of arguments is correct
@@ -125,15 +125,24 @@ clear
 
 #----Power plant id (optional)
 
-	power_plant_id=$4 ## check if it's a number plsss
+	power_plant_id=$4 
+	if [ ! -z "$power_plant_id" ]; then
+		if [ "$power_plant_id" -le 0 ] || [[ ! "$power_plant_id" =~ ^[0-9]+$ ]]; then
+			slow_print "/!\ Error : Power plant id must be a positive number"
+			echo
+			help_manual
+			exit 1
+		fi
+	fi
+
 
 #----Check if the executable exists
 
-	if [ ! -x exec ]; then
-	    slow_print "/!\ Error : Executable doesn't exist."
-	    echo
+#	if [ ! -x exec ]; then
+#	    slow_print "/!\ Error : Executable doesn't exist."
+#	    echo
 	    ## compilation + verification ( ? make ?)
-	fi
+#	fi
 
 #----Check if tmp directory exists
 
@@ -150,18 +159,52 @@ clear
 	fi
 
 
-# Initialize duration
-
 # IF ERROR TIME ELAPSED = 0s
+# Initialize duration
 start_timer=$(date +%s)
 
-# PROGRAMM
+input_csv=$file_csv
+output_csv="tmp/temp.dat"
+
+
+# HVB COMP
+ if [ "$station_type" == "hvb" ]; then
+	tail -n +2 $input_csv | awk -F ";" '$2 != "-" && $3 == "-" {print $0}' > "$output_csv"
+fi
+
+# HVA COMP
+if [ "$station_type" == "hva" ]; then
+	tail -n +2 $input_csv | awk -F ";" '$3 != "-" && $4 == "-" {print $0}' > "$output_csv"
+fi
+
+if [ "$station_type" == "lv" ]; then
+	# LV COMP
+	if [ "$consumer_type" == "comp" ]; then
+	tail -n +2 $input_csv | awk -F ";" '$4 != "-" && $6 == "-" {print $0}' > "$output_csv"
+	fi
+	# LV INDIV
+	if [ "$consumer_type" == "indiv" ]; then
+	tail -n +2 $input_csv | awk -F ";" '$4 != "-" && $5 == "-" {print $0}' > "$output_csv"
+	fi
+	# LV ALL
+	if [ "$consumer_type" == "all" ]; then
+	tail -n +2 $input_csv | awk -F ";" '$4 != "-" {print $0}' > "$output_csv"
+	fi
+fi
+
+if [ ! -z "$power_plant_id" ]; then
+	
+	awk -F ";" '$1 == "$power_plant_id" {print $0}' "$output_csv" > "${output_csv}.tmp"
+	mv "${output_csv}.tmp" "$output_csv"
+fi
+
+
+# C PROGRAMM
 
 
 
-# graph : gnuplot
-# create file station list
-# create avl in C
+#./exe temp.dat $station_type $consumer_type $power_plant_id
+
 
 
 
