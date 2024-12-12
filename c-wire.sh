@@ -193,7 +193,7 @@ if [ "$station_type" == "lv" ]; then
 fi
 
 if [ ! -z "$power_plant_id" ]; then
-    awk -F ";" -v id="$power_plant_id" '$1 == id {print $0}' "$output_csv" > "${output_csv}.tmp"
+    awk -F ";" -v id="$power_plant_id" '$1 == id {print $0}' "$output_csv" > "${output_csv}.tmp" # -v = variable
     mv "${output_csv}.tmp" "$output_csv"
 fi
 
