@@ -202,7 +202,7 @@ void prefixe(AVL* avl){
     }
 }
 
-int main(){
+int main(int argc, char* argv[]){
     AVL* root = NULL;
     int h = 0;
 // TESTING
@@ -227,7 +227,7 @@ int main(){
     prefixe(root);
 
     // Delete specific values from the AVL tree with null checks
-    if (root != NULL) {
+
         printf("\nDeleting value 29\n");
         root = removeAVL(root, 29, &h);
 
@@ -240,5 +240,24 @@ int main(){
         // Print the tree in prefix order after deletion
         printf("\nTree after deletion:\n");
         prefixe(root);
+   
+   // FREE AVL !!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    if ( argc != 2){
+        printf("Error mauvais nombres d'argumpent");
+     exit(2);
     }
+   
+   FILE* file;
+   const char* filename = argv[1];
+   fopen(filename, "r");
+
+  if ( file == NULL){
+    printf("Error file");
+    exit(1);
+  }
+
+
+
+
 }
