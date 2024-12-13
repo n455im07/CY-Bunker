@@ -5,7 +5,7 @@ Original subject: [C-WIRE](documents/subject.pdf) 📄<br>
 Project report: [PDF](documents/report.pdf) 📑<br>
 
 ## 📋 Instructions
-1. **🔧 Before Installing**
+0. **🔧 Before Installing**
   - Make sure to use Linux or to have downloaded a Linux terminal. <br>
     <a href="https://www.youtube.com/watch?v=Hwbii-fnKIk">
      <img src="https://go-skill-icons.vercel.app/api/icons?i=linux,wsl" alt="Linux"/>
