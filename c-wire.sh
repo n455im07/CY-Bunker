@@ -201,7 +201,7 @@ fi
 # C PROGRAMM
 
 
-
+chmod 777 tmp
 #./exe temp.dat $station_type $consumer_type $power_plant_id
 
 
