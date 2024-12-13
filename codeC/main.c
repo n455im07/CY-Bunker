@@ -26,7 +26,7 @@ int main(int argc, char* argv[]){
 
    fprintf(file, "Station HV-B:Capacity:Consumption(company)");
 
-
+// next conditions ->>>> 
 
 
 
