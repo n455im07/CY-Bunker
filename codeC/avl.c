@@ -243,10 +243,6 @@ int main(int argc, char* argv[]){
    
    // FREE AVL !!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    if ( argc != 5){
-        printf("Error wrong arguments number");
-     exit(2);
-    }
    
    FILE* file;
    const char* filename = argv[1];

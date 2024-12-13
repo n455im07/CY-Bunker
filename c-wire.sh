@@ -138,11 +138,11 @@ clear
 
 #----Check if the executable exists
 
-#	if [ ! -x exec ]; then
-#	    slow_print "/!\ Error : Executable doesn't exist."
-#	    echo
-	    ## compilation + verification ( ? make ?)
-#	fi
+	if [ ! -x exe ]; then
+	    slow_print "/!\ Error : Executable doesn't exist."
+	    echo
+	    make -C codeC
+	fi
 
 #----Check if tmp directory exists
 
@@ -205,7 +205,8 @@ fi
 #./exe temp.dat $station_type $consumer_type $power_plant_id
 
 
-
+# THEN SORT ORDER
+#LV ALL --> SUBJECT
 
 end_time=$(date +%s)
 duration=$(($end_time - $start_timer)) #bc convert nano to seconds 
