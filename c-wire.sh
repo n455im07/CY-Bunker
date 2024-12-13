@@ -139,8 +139,9 @@ clear
 #----Check if the executable exists
 
 	if [ ! -x exe ]; then
-	    slow_print "/!\ Error : Executable doesn't exist."
+	    slow_print "/!\ Error : Executable doesn't exist. Compiling..."
 	    echo
+		make clean -C codeC
 	    make -C codeC
 	fi
 
