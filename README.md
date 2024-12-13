@@ -1,6 +1,6 @@
 # CY-Bunker
 
-Developed by ABAJOU Sofyane, EL JARJINI Hicham, and JAMHOUR Nassim. 
+Developed by ABAJOU Sofyane, EL JARJINI Hicham, and JAMHOUR Nassim. <br>
 Original subject: [C-WIRE](documents/subject.pdf) <br>
 Project report: [PDF](documents/report.pdf) <br>
 
