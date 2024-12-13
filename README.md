@@ -8,10 +8,11 @@ Project report: [PDF](documents/report.pdf) 📑<br>
 
 1. **🔧 Before Installing**
    - Make sure to use Linux or to have downloaded a Linux terminal. <br> 
-    <img src="https://go-skill-icons.vercel.app/api/icons?i=linux" alt="Linux"/>
-<a href="https://www.youtube.com/watch?v=Hwbii-fnKIk">
-    <img src="https://go-skill-icons.vercel.app/api/icons?i=wsl" alt="WSL"/>
-</a>
+    <a href="https://www.youtube.com/watch?v=Hwbii-fnKIk">
+      <img src="https://go-skill-icons.vercel.app/api/icons?i=linux" alt="Linux"/>
+      <img src="https://go-skill-icons.vercel.app/api/icons?i=wsl" alt="WSL"/>
+    </a>
+    
 1. **🚀 Running the Project**
    - Execute the project with the following command:
      ```sh
