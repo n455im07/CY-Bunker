@@ -178,8 +178,8 @@ if [ "$station_type" == "hva" ]; then
 	tail -n +2 $input_csv | awk -F ";" '$3 != "-" && $4 == "-" {print $0}' > "$output_csv"
 fi
 
+# LV COMP
 if [ "$station_type" == "lv" ]; then
-	# LV COMP
 	if [ "$consumer_type" == "comp" ]; then
 	tail -n +2 $input_csv | awk -F ";" '$4 != "-" && $6 == "-" {print $0}' > "$output_csv"
 	fi
