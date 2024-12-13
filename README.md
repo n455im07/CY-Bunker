@@ -14,6 +14,10 @@ Project report: [PDF](documents/report.pdf) <br>
      ```sh
      ./c-wire.sh <CSV File> <Station Type> <Consumer Type> [Power Plant ID]
      ```
+   - If you don't have execute permissions, you can run the script with:
+     ```sh
+     bash c-wire.sh <CSV File> <Station Type> <Consumer Type> [Power Plant ID]
+     ```
    - Example:
      ```sh
      ./c-wire.sh data.csv hvb comp 1
