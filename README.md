@@ -1,15 +1,18 @@
-# CY-Bunker
+# CY-Bunker ⚡
 
-Developed by ABAJOU Sofyane, EL JARJINI Hicham, and JAMHOUR Nassim. <br>
-Original subject: [C-WIRE](documents/subject.pdf) <br>
-Project report: [PDF](documents/report.pdf) <br>
+Developed by ABAJOU Sofyane, EL JARJINI Hicham, and JAMHOUR Nassim. 
+Original subject: [C-WIRE](documents/subject.pdf) 📄<br>
+Project report: [PDF](documents/report.pdf) 📑<br>
 
-## Instructions
+## 📋 Instructions
 
-1. **Before Installing**
-   - Make sure to use Linux or to have downloaded a Linux terminal.
-
-2. **Running the Project**
+1. **🔧 Before Installing**
+   - Make sure to use Linux or to have downloaded a Linux terminal. <br> 
+    <img src="https://go-skill-icons.vercel.app/api/icons?i=linux" alt="Linux"/>
+<a href="https://www.youtube.com/watch?v=Hwbii-fnKIk">
+    <img src="https://go-skill-icons.vercel.app/api/icons?i=wsl" alt="WSL"/>
+</a>
+1. **🚀 Running the Project**
    - Execute the project with the following command:
      ```sh
      ./c-wire.sh <CSV File> <Station Type> <Consumer Type> [Power Plant ID]
@@ -23,26 +26,33 @@ Project report: [PDF](documents/report.pdf) <br>
      ./c-wire.sh data.csv hvb comp 1
      ```
 
-3. **Options**
+2. **⚙️ Options**
    - `<CSV File>`: Path to the CSV file.
    - `<Station Type>`: Type of station (`hva`, `hvb`, `lv`).
    - `<Consumer Type>`: Type of consumer (`comp`, `indiv`, `all`). Note: `comp` only works with `hva` or `hvb` station types.
    - `[Power Plant ID]`: (Optional) ID of the power plant, must be a positive number.
 
-4. **Help Manual**
+3. **❓ Help Manual**
    - To display the help manual, use the `-h` option:
      ```sh
      ./c-wire.sh -h
      ```
 
-5. **Cleaning Up**
+4. **🧹 Cleaning Up**
    - To delete object files and the executable, use the command:
      ```sh
      make clean -C codeC
      ```
 
-## Contributors
+## 🌐 Made using
+
+<a href="https://github.com/nassimjmh/CY-Bunker">
+    <img src="https://skillicons.dev/icons?i=c,bash,vscode,git,github&theme=dark" alt="Made using"/>
+</a>
+
+
+## 👥 Contributors
 
 <a href="https://github.com/nassimjmh/CY-Bunker/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nassimjmh/CY-Bunker" />
+  <img src="https://contrib.rocks/image?repo=nassimjmh/CY-Bunker" alt="Contributors" />
 </a>
