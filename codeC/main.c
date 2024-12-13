@@ -4,8 +4,7 @@
 
 int main(int argc, char* argv[]){
 
-// ./exe temp.dat $station_type $consumer_type $power_plant_id
-
+/*
     // File creation
     
     for (int i = 0;i<argc;i++){
@@ -26,6 +25,7 @@ int main(int argc, char* argv[]){
 
    fprintf(file, "Station HV-B:Capacity:Consumption(company)");
 
+    */ 
 // next conditions ->>>> 
 
 
