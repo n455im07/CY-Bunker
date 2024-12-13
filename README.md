@@ -53,7 +53,7 @@ Project report: [PDF](documents/report.pdf) 📑<br>
     <img src="https://skillicons.dev/icons?i=git,github&theme=dark" alt="Made using" style="vertical-align: middle;"/>
 </span>
 <span style="display: inline-block;">
-    <img src="https://cdn.discordapp.com/attachments/838699933586423821/1317252655990575174/removed.png?ex=675e02a2&is=675cb122&hm=4689bc9399809aee58bfc1afb87e12694e691e4908f629916499c1fd89ec3bcc&" alt="Made using" width="66" style="vertical-align: middle; margin-right: 10px; margin-bottom: -25px;"/>
+    <img src="https://cdn.discordapp.com/attachments/838699933586423821/1317252655990575174/removed.png?ex=675e02a2&is=675cb122&hm=4689bc9399809aee58bfc1afb87e12694e691e4908f629916499c1fd89ec3bcc&" alt="Made using" width="66" style="vertical-align: middle; margin-right: 10px; margin-bottom: -50px;"/>
 </span>
 
 ## 👥 Contributors
