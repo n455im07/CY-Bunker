@@ -17,25 +17,28 @@ int main(int argc, char* argv[]){
        file_name = "tmp/hvb_comp.dat";
        head = "Station HV-B:Capacity:Consumption(company)";
     }
-    else if (strcmp(argv[2], "hva") == 0 && argc < 5){
+    else if (strcmp(argv[2], "hva") == 0 && argc < 5){ // HVA and no PP
        file_name = "tmp/hva_comp.dat";
        head = "Station HV-A:Capacity:Consumption(company)";
     }
-    else if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "comp") == 0 && argc < 5) {
+    else if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "comp") == 0 && argc < 5) { // LV and Comp and no PP
         file_name = "tmp/lv_comp.dat";
-        header = "Station LV:Capacity:Consumption(company)";
+        head = "Station LV:Capacity:Consumption(company)";
     }
-    else if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "indiv") == 0) {
-        file_name = "tmp/lv_comp.dat";
-        header = "Station LV:Indiv:Consumption(company)";
+    else if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "indiv") == 0) { // LV and Indiv and no PP
+        file_name = "tmp/lv_indiv.dat";
+        head = "Station LV:Capacity:Consumption(individuals)";
     }
-    else if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "all") == 0) {
+    else if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "all") == 0) { // LV ALL and no PP
         file_name = "tmp/lv_all.dat";
-        header = "Station LV:All:Consumption(company)";
+        head = "Station LV:Capacity:Consumption(all)";
     }
 
 
 
+
+
+    
   // Create the file 
     FILE* file = fopen(file_name, "w");
 
