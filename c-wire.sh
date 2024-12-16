@@ -216,6 +216,7 @@ touch "tmp/$output_file_name"
 
 chmod 777 tmp
 
+#FAIRE APPEL AU MAKE GCC INTERDIT DANS LE SHELL
 
 #./exe temp.dat $station_type $consumer_type $power_plant_id  
 
