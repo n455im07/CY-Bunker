@@ -130,12 +130,15 @@ AVL* insertAVL(AVL* avl,int id,int* h, long long capacity, long long load){
     return avl;
 }
 
-void infixe(AVL* avl){
-    if (avl==NULL){
-        return;
-    }else{
-        infixe(avl->left);
-        printf("%d eq = %d,  capacity = %lld load = %lld\n",avl->id,avl->bf, avl -> capacity, avl -> load);
-        infixe(avl->right);
+AVL* freeAVL(AVL* pavl) {
+    if (pavl == NULL) {
+        return NULL;
     }
+
+    // free left and right
+    freeAVL(pavl->left);
+    freeAVL(pavl->right);
+
+    // free parents
+    free(pavl);
 }

@@ -42,6 +42,5 @@ AVL* treatment(AVL* pavl, char* stationType){
     }else{
         printf("Error opening file\n");
     }
-    infixe(pavl);
     return pavl;
 }

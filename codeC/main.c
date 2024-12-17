@@ -39,6 +39,15 @@ int main(int argc, char* argv[]){
     pavl = treatment(pavl,argv[1]);
     write_csv(pavl, file);
     fclose(file);
-
+    
+    
+    if (pavl != NULL) {
+        pavl = freeAVL(pavl);
+    }
+    if ( pavl == NULL){
+        printf("\n\navl vide\n\n");
+    }else{
+        printf("\n\navl non vide\n\n");
+    }
     return 0;
 }
