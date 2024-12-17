@@ -130,16 +130,101 @@ AVL* insertAVL(AVL* avl,int id,int* h, long long capacity, long long load){
     return avl;
 }
 
-AVL* freeAVL(AVL* pavl) {
-    if (pavl == NULL) {
+AVL* freeAVL(AVL* avl) {
+    if (avl == NULL) {
         return NULL;
     }
 
     // free left and right
-    freeAVL(pavl->left);
-    freeAVL(pavl->right);
+    freeAVL(avl->left);
+    freeAVL(avl->right);
 
     // free parents
-    free(pavl);
+    free(avl);
     return NULL;
+}
+
+AVL* minConsAVL(AVL* avl, long long* min, AVL** minAVL){
+    if (avl == NULL){
+        return NULL;
+    }
+    if (avl->load < *min) {
+        *min = avl->load;
+        *minAVL = avl;
+    }
+    minConsAVL(avl->left, min, minAVL);
+    minConsAVL(avl->right, min, minAVL);
+
+    return *minAVL;
+}
+
+AVL* maxConsAVL(AVL* avl, long long* max, AVL** maxAVL){
+    if (avl == NULL){
+        return NULL;
+    }
+    if (avl->load > *max) {
+        *max = avl->load;
+        *maxAVL = avl;
+    }
+    maxConsAVL(avl->left, max, maxAVL);
+    maxConsAVL(avl->right, max, maxAVL);
+
+    return *maxAVL;
+}
+
+
+AVL* removeMin(AVL* avl, int* id, int* h){
+    AVL* tmp;
+    if (avl==NULL){
+        *h = -1;
+        return avl;
+    }
+    if ( avl -> left == NULL){
+        *id = avl -> id;
+        tmp = avl;
+        avl = avl -> left;
+        free(tmp);
+        *h = -1;
+        return avl;
+    }
+    else{
+        avl -> left = removeMin(avl -> left, id, h);
+        *h = -*h;
+    }
+    if(*h!=0){
+        avl -> bf = avl -> bf +*h;
+        avl = balanceAVL(avl);
+        *h = (avl->bf==0) ? -1 : 0;
+    }
+    return avl;
+}
+
+AVL* removeAVL(AVL* avl,int id,int* h){
+    if (avl==NULL){
+        *h=0;
+        return avl ;
+    }
+    if (id<avl->id){
+        avl->left = removeAVL(avl->left,id,h);
+        *h=-*h;
+    }
+    else if (id>avl->id){
+        avl->right = removeAVL(avl->right,id,h);
+    }
+    else if (avl->right != NULL){
+        avl->right = removeMin(avl->right,&(avl->id), h);
+    }
+    else{
+        AVL* temp = avl;
+        avl=avl->left;
+        free(temp);
+        *h=-1;
+        return avl;
+    }
+    if (avl!=NULL && *h!=0){
+        avl->bf+=*h;
+        avl=balanceAVL(avl);
+        *h= (avl->bf==0) ? -1 : 0;
+    }
+    return avl;
 }

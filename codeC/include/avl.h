@@ -25,7 +25,15 @@ AVL* doubleRight(AVL* avl);
 AVL* doubleLeft(AVL* avl);
 AVL* balanceAVL(AVL* avl);
 AVL* insertAVL(AVL* avl, int id, int* h, long long capacity, long long load);
-AVL* freeAVL(AVL* pavl);
+AVL* freeAVL(AVL* avl);
+AVL* maxConsAVL(AVL* avl, long long* max, AVL** maxAVL);
+AVL* minConsAVL(AVL* avl, long long* min, AVL** minAVL);
+AVL* removeMin(AVL* avl, int* id, int* h);
+AVL* removeAVL(AVL* avl,int id,int* h);
+
+
+    
+
 
 
 #endif // AVL_H

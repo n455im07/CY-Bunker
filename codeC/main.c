@@ -40,7 +40,21 @@ int main(int argc, char* argv[]){
     write_csv(pavl, file);
     fclose(file);
     
-    
+    if (strcmp(argv[1],"lv") == 0 && strcmp(argv[2],"all") == 0){
+        FILE* file2 = fopen("tmp/lv_allminmax.csv","w");
+        if (file2 == NULL) {
+            printf("Error opening file\n");
+            exit(1);    
+        }
+        fprintf(file2,"%s\n","Min and Max 'capacity-load' extreme nodes");
+        fprintf(file2,"%s\n",head);
+
+    }
+    if (strcmp(argv[1],"lv") == 0 && strcmp(argv[2],"all") == 0){
+      
+        write_csv_minmax(pavl, file);
+        fclose(file);
+    }
     if (pavl != NULL) {
         pavl = freeAVL(pavl);
     }
