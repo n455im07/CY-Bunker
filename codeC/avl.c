@@ -86,8 +86,6 @@ AVL* doubleLeft(AVL* avl){
 }
 
 AVL* balanceAVL(AVL* avl){
-    
-
     if ( avl->bf >= 2){
         if ( avl->right != NULL && avl->right->bf >= 0){
             return rotateLeft(avl);
@@ -120,6 +118,7 @@ AVL* insertAVL(AVL* avl,int id,int* h, long long capacity, long long load){
     }
     else{
         *h=0;
+        avl->load+=load;
         return avl;
     }
    
@@ -131,66 +130,12 @@ AVL* insertAVL(AVL* avl,int id,int* h, long long capacity, long long load){
     return avl;
 }
 
-AVL* removeMin(AVL* avl, int* id, int* h){
-    AVL* tmp;
-    if (avl==NULL){
-        return avl;
-    }
-    if ( avl -> left == NULL){
-        *id = avl -> id;
-        tmp = avl;
-        avl = avl -> left;
-        free(tmp);
-        *h = -1;
-        return avl;
-    }
-    else{
-        avl -> left = removeMin(avl -> left, id, h);
-        *h = -*h;
-    }
-    if(*h!=0){
-        avl -> bf = avl -> bf +*h;
-        avl = balanceAVL(avl);
-        *h = (avl->bf==0) ? -1 : 0;
-    }
-    return avl;
-}
-
-AVL* removeAVL(AVL* avl,int id,int* h){
-    if (avl==NULL){
-        *h=0;
-        return avl ;
-    }
-    if (id<avl->id){
-        avl->left = removeAVL(avl->left,id,h);
-        *h=-*h;
-    }
-    else if (id>avl->id){
-        avl->right = removeAVL(avl->right,id,h);
-    }
-    else if (avl->right != NULL){
-        avl->right = removeMin(avl->right,&(avl->id), h);
-    }
-    else{
-        AVL* temp = avl;
-        avl=avl->left;
-        free(temp);
-        *h=-1;
-    }
-    if (avl!=NULL && *h!=0){
-        avl->bf+=*h;
-        avl=balanceAVL(avl);
-        *h= (avl->bf==0) ? 0 : 1;
-    }
-    return avl;
-}
-
-void prefixe(AVL* avl){
+void infixe(AVL* avl){
     if (avl==NULL){
         return;
     }else{
+        infixe(avl->left);
         printf("%d eq = %d,  capacity = %lld load = %lld\n",avl->id,avl->bf, avl -> capacity, avl -> load);
-        prefixe(avl->left);
-        prefixe(avl->right);
+        infixe(avl->right);
     }
 }

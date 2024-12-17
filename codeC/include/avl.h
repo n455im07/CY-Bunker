@@ -25,8 +25,6 @@ AVL* doubleRight(AVL* avl);
 AVL* doubleLeft(AVL* avl);
 AVL* balanceAVL(AVL* avl);
 AVL* insertAVL(AVL* avl, int id, int* h, long long capacity, long long load);
-AVL* removeMin(AVL* avl, int* id, int* h);
-AVL* removeAVL(AVL* avl, int id, int* h);
-void prefixe(AVL* avl);
+void infixe(AVL* avl);
 
 #endif // AVL_H

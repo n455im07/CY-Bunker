@@ -27,7 +27,6 @@ AVL* treatment(AVL* pavl){
                 }
                 token = strtok(NULL, ";");
             }
-            printf("id : %d, capacity : %lld, load : %lld\n",id,capacity,load);
             // APPEL AVL
             int h = 0;
             pavl = insertAVL(pavl, id, &h, capacity, load);
@@ -36,5 +35,6 @@ AVL* treatment(AVL* pavl){
     }else{
         printf("Error opening file\n");
     }
+    infixe(pavl);
     return pavl;
 }
