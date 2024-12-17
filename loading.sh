@@ -1,68 +1,70 @@
 #!/bin/bash
 
 speed=0.1
+p1="╔═╗╦ ╦   ╔╗ ╦ ╦╔╗╔╦╔═╔═╗╦═╗\n║  ╚╦╝───╠╩╗║ ║║║║╠╩╗║╣ ╠╦╝╗\n╚═╝ ╩    ╚═╝╚═╝╝╚╝╩ ╩╚═╝╩╚═\n┏━━━━━━━━━━━━━━━━━━━━┓\n"
+p2="┗━━━━━━━━━━━━━━━━━━━━┛"
 
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+
+printf "$p1" 
 echo ┃⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜┃
-echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬛⬛⬜⬜⬜⬜⬜⬜⬜┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬛⬛⬛⬜⬜⬜⬜⬜⬜┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬛⬛⬛⬛⬜⬜⬜⬜⬜┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬛⬛⬛⬛⬛⬜⬜⬜⬜┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬛⬛⬛⬛⬛⬛⬜⬜⬜┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬛⬛⬛⬛⬛⬛⬛⬜⬜┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬛⬛⬛⬛⬛⬛⬛⬛⬜┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed
 clear
 ##
-echo ┏━━━━━━━━━━━━━━━━━━━━┓
+printf "$p1" 
 echo ┃⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛┃
 echo ┗━━━━━━━━━━━━━━━━━━━━┛
 sleep $speed

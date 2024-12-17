@@ -2,9 +2,8 @@
 #include <stdlib.h>
 #include <string.h> 
 
-#include "include/treat_dat.h"
-
-
+#include "include/treat_csv.h"
+#include "include/output_csv.h"
 
 int main(int argc, char* argv[]){
 
@@ -35,12 +34,11 @@ int main(int argc, char* argv[]){
     }
     
     fprintf(file, "%s\n", head); // Write the head in the file
+    
+    AVL* pavl = NULL;
+    pavl = treatment(pavl,argv[1]);
+    write_csv(pavl, file);
     fclose(file);
 
-    AVL* pavl = NULL;
-    pavl = treatment(pavl);
-
-   
-   // Others things to do here 
     return 0;
 }

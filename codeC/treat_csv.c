@@ -4,8 +4,8 @@
 
 #include "include/avl.h"
 
-AVL* treatment(AVL* pavl){
-    FILE* file = fopen("tmp/temp.dat","r+");
+AVL* treatment(AVL* pavl, char* stationType){
+    FILE* file = fopen("tmp/temp.csv","r+");
     char chaine[50]="";
 
     if (file != NULL){
@@ -18,16 +18,23 @@ AVL* treatment(AVL* pavl){
             int column = 0;
             while (token != NULL){
                 column++;
-                if (column == 2){
+                if (strcmp(stationType, "hvb") == 0    && column == 2){
                     id = atoi(token);
-                }else if (column == 7){
+                }
+                if (strcmp(stationType, "hva") == 0    && column == 3){
+                    id = atoi(token);
+                }
+                if (strcmp(stationType, "lv") == 0    && column == 4){
+                    id = atoi(token);
+                }
+                else if (column == 7){
                     capacity = atoll(token);
                 }else if (column == 8){
                     load = atoll(token);
                 }
                 token = strtok(NULL, ";");
             }
-            // APPEL AVL
+            // Calling AVL
             int h = 0;
             pavl = insertAVL(pavl, id, &h, capacity, load);
         }

@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -std=c99
 
 # Source files
-SRCS = main.c treat_dat.c avl.c
+SRCS = main.c treat_csv.c avl.c output_csv.c
 
 OBJS = $(SRCS:.c=.o)
 
