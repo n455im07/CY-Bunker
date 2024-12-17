@@ -2,14 +2,12 @@
 #include <stdlib.h>
 #include <string.h> 
 
-#include "include/avl.h"
 #include "include/treat_dat.h"
+
+
 
 int main(int argc, char* argv[]){
 
-    for (int i = 0;i<argc;i++){
-        printf("%d = %s\n",i,argv[i]);
-    }
     const char* file_name = NULL;
     const char* head = NULL;
     file_name = argv[4];
@@ -38,18 +36,11 @@ int main(int argc, char* argv[]){
     
     fprintf(file, "%s\n", head); // Write the head in the file
     fclose(file);
-  
-  
 
-    AVL* avl = treatment(avl);
-  
-  
-  
-   // Others things to do here 
-
-
+    AVL* pavl = NULL;
+    pavl = treatment(pavl);
 
    
+   // Others things to do here 
     return 0;
-    
 }

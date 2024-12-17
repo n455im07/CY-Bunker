@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 // Structure for AVL Tree Node
 typedef struct AVL {
     int id;             // Value of the node
@@ -25,6 +26,8 @@ AVL* creationAVL(int id, long long capacity , long long load){
     new->load=load;
     return new;
 }
+
+
 
 int max(int a,int b){
     return (a>b) ? a : b;

@@ -30,12 +30,11 @@ AVL* treatment(AVL* pavl){
             printf("id : %d, capacity : %lld, load : %lld\n",id,capacity,load);
             // APPEL AVL
             int h = 0;
-            printf("\n\n\nON VA APPELER INSERT AVL ICI \n");
             pavl = insertAVL(pavl, id, &h, capacity, load);
         }
         fclose(file);
     }else{
         printf("Error opening file\n");
     }
-    return 0;
+    return pavl;
 }

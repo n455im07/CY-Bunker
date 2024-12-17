@@ -3,6 +3,6 @@
 
 #include "avl.h"
 
-AVL* treatment(AVL* pavl){
+AVL* treatment(AVL* pavl);
 
 #endif // TREAT_DAT_H
