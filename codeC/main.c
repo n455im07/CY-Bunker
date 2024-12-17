@@ -35,13 +35,17 @@ int main(int argc, char* argv[]){
         exit(1);
     }
 
-    // Write the head in  the file
+    // Write the head in the file
     fprintf(file, "%s\n", head);
-
-   // Others things to do here 
-    
-    // Close the file
     fclose(file);
+  
+  
+  
+   // Others things to do here 
+
+
+  
+
 
     printf("File written: %s\n", file_name);
     return 0;
