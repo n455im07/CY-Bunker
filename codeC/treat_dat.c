@@ -2,10 +2,9 @@
 #include <string.h> 
 #include <stdlib.h>
 
+#include "include/avl.h"
 
-
-
-int treatment(AVL* bidule){
+AVL* treatment(AVL* pavl){
     FILE* file = fopen("tmp/temp.dat","r+");
     char chaine[50]="";
 
@@ -30,15 +29,13 @@ int treatment(AVL* bidule){
             }
             printf("id : %d, capacity : %lld, load : %lld\n",id,capacity,load);
             // APPEL AVL
-
+            int h = 0;
+            printf("\n\n\nON VA APPELER INSERT AVL ICI \n");
+            pavl = insertAVL(pavl, id, &h, capacity, load);
         }
         fclose(file);
     }else{
         printf("Error opening file\n");
     }
-    return 0;
-}
-
-int main(){
     return 0;
 }

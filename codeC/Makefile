@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -std=c99
 
 # Source files
-SRCS = main.c
+SRCS = main.c treat_dat.c avl.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -23,3 +23,5 @@ clean:
 
 run: $(TARGET)
 	./$(TARGET) temp.dat hvb other_argument
+
+

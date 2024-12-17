@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Structure for AVL Tree Node
 typedef struct AVL {
-    int id;
-    long long capacity;
-    long long load;
-    int bf;
-    struct AVL* left;
-    struct AVL* right;
-}AVL;
+    int id;             // Value of the node
+    long long capacity; // Capacity of the node
+    long long load;     // Load of the node
+    int bf;             // Balance Factor
+    struct AVL* left;   // Pointer to left child
+    struct AVL* right;  // Pointer to right child
+} AVL;
 
 AVL* creationAVL(int id, long long capacity , long long load){
     AVL* new = malloc(sizeof(AVL));
@@ -24,22 +25,6 @@ AVL* creationAVL(int id, long long capacity , long long load){
     new->load=load;
     return new;
 }
-
-int searchAVL(AVL* avl,int id){
-    if (avl == NULL){
-        return 0;
-    }
-    if (avl->id == id){
-        return 1;
-    }
-    if (avl->id < id && avl->right != NULL){
-        return searchAVL(avl->right,id);
-    }
-    if (avl->id > id && avl->left !=NULL){
-        return searchAVL(avl->left,id);
-    }
-}
-
 
 int max(int a,int b){
     return (a>b) ? a : b;
@@ -201,54 +186,8 @@ void prefixe(AVL* avl){
     if (avl==NULL){
         return;
     }else{
-        printf("%d eq = %d\n",avl->id,avl->bf);
+        printf("%d eq = %d,  capacity = %lld load = %lld\n",avl->id,avl->bf, avl -> capacity, avl -> load);
         prefixe(avl->left);
         prefixe(avl->right);
     }
-}
-
-int main(int argc, char* argv[]){
-    AVL* root = NULL;
-    int h = 0;
-    // TESTING
-    // Insert values into the AVL tree
-    root = insertAVL(root, 42, &h, 100, 50);
-    root = insertAVL(root, 17, &h, 100, 50);
-    root = insertAVL(root, 68, &h, 100, 50);
-    root = insertAVL(root, 3, &h, 100, 50);
-    root = insertAVL(root, 25, &h, 100, 50);
-    root = insertAVL(root, 91, &h, 100, 50);
-    root = insertAVL(root, 54, &h, 100, 50);
-    root = insertAVL(root, 36, &h, 100, 50);
-    root = insertAVL(root, 77, &h, 100, 50);
-    root = insertAVL(root, 12, &h, 100, 50);
-    root = insertAVL(root, 89, &h, 100, 50);
-    root = insertAVL(root, 5, &h, 100, 50);
-    root = insertAVL(root, 63, &h, 100, 50);
-    root = insertAVL(root, 29, &h, 100, 50);
-    root = insertAVL(root, 48, &h, 100, 50);
-
-    printf("tree before deletion\n");
-    prefixe(root);
-
-    // Delete specific values from the AVL tree with null checks
-
-        printf("\nDeleting value 29\n");
-        root = removeAVL(root, 29, &h);
-
-        printf("\nDeleting value 5\n");  // Fixed message to match actual value
-        root = removeAVL(root, 5, &h);
-
-        printf("\nDeleting value 54\n");
-        root = removeAVL(root, 54, &h);
-
-        // Print the tree in prefix order after deletion
-        printf("\nTree after deletion:\n");
-        prefixe(root);
-   
-   // FREE AVL !!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-    return 0;
-
 }

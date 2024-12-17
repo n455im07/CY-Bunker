@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h> 
 
+#include "include/avl.h"
+#include "include/treat_dat.h"
+
 int main(int argc, char* argv[]){
 
     for (int i = 0;i<argc;i++){
@@ -38,6 +41,10 @@ int main(int argc, char* argv[]){
   
   
 
+    AVL* avl = treatment(avl);
+  
+  
+  
    // Others things to do here 
 
 
