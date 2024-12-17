@@ -50,7 +50,7 @@ Project report: [PDF](documents/report.pdf) 📑<br>
 </a>
 
 
-## 👥 Contributors
+## 👥 Collaborators
 
 <a href="https://github.com/nassimjmh/CY-Bunker/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=nassimjmh/CY-Bunker" alt="Contributors" />
