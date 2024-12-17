@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "output_dat.C": "cpp",
-        "stdio.h": "c",
-        "avl.h": "c"
-    }
-}
