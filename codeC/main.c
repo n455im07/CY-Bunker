@@ -7,38 +7,28 @@ int main(int argc, char* argv[]){
     for (int i = 0;i<argc;i++){
         printf("%d = %s\n",i,argv[i]);
     }
-
-    
     
     const char* file_name = NULL;
     const char* head = NULL;
     file_name = argv[5];
     
-    if(strcmp(argv[5],"tmp/hvb_comp.dat") == 0){ // HVB and no PP
+    if(strcmp(argv[2],"hvb") == 0){ // HVB 
        head = "Station HV-B:Capacity:Consumption(company)";
     }
-
-    else if (strcmp(argv[2], "hva") == 0 && argc < 5){ // HVA and no PP
-       file_name = "tmp/hva_comp.dat";
+    if(strcmp(argv[2],"hva") == 0){ // HVA
        head = "Station HV-A:Capacity:Consumption(company)";
     }
-    else if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "comp") == 0 && argc < 5) { // LV and Comp and no PP
-        file_name = "tmp/lv_comp.dat";
+    if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "comp") == 0) { // LV Comp
         head = "Station LV:Capacity:Consumption(company)";
     }
-    else if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "indiv") == 0 && argc < 5) { // LV and Indiv and no PP
-        file_name = "tmp/lv_indiv.dat";
+    if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "indiv") == 0) { // LV Indiv
         head = "Station LV:Capacity:Consumption(individuals)";
     }
-    else if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "all") == 0 && argc < 5) { // LV ALL and no PP
-        file_name = "tmp/lv_all.dat";
+    if (strcmp(argv[2], "lv") == 0 && strcmp(argv[3], "all") == 0) { // LV ALL
         head = "Station LV:Capacity:Consumption(all)";
-    }
-
-    printf("HEAD : %s\n", head);
+    }    
     
-    
-  // Create the file 
+    // Create the file 
     FILE* file = fopen(file_name, "w");
     if (file == NULL) {
         printf("Error opening file\n");
@@ -49,9 +39,6 @@ int main(int argc, char* argv[]){
     fprintf(file, "%s\n", head);
 
    // Others things to do here 
-
-
-
     
     // Close the file
     fclose(file);
