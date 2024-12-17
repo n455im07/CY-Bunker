@@ -10,6 +10,8 @@ Project report: [PDF](documents/report.pdf) 📑<br>
     <a href="https://www.youtube.com/watch?v=Hwbii-fnKIk">
      <img src="https://go-skill-icons.vercel.app/api/icons?i=linux,wsl" alt="Linux"/>
     </a>
+         <img src="https://go-skill-icons.vercel.app/api/icons?i=debian,ubuntu" alt="Linux"/>
+
 
 1. **🚀 Running the Project**
    - Execute the project with the following command:
