@@ -1,7 +1,8 @@
 #!/bin/bash
 clear
+printf '\033[1;32;32m'
 bash loading.sh
-
+printf '\033[0m'
 ##################################################################################################	
 ##### F O N C T I O N S ##########################################################################
 ##################################################################################################
@@ -207,6 +208,12 @@ make -C codeC
 end_time=$(date +%s)
 duration=$(($end_time - $start_timer)) #bc convert nano to seconds 
 
+# Remove .o files in codeC/
+
+find codeC -type f -name "*.o" -exec rm -f {} \;
 
 #print Treatment time
-echo "Treatment time: $duration seconds"
+
+echo -e "\033[1;35m╔════════════════════════════════════════╗\033[0m"
+echo -e "\033[1;35m║ \033[1;37mTreatment Time: \033[1;32m$duration seconds\033[1;35m              ║\033[0m"
+echo -e "\033[1;35m╚════════════════════════════════════════╝\033[0m"

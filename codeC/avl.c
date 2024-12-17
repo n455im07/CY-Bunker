@@ -141,4 +141,5 @@ AVL* freeAVL(AVL* pavl) {
 
     // free parents
     free(pavl);
+    return NULL;
 }
