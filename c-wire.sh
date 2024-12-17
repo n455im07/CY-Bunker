@@ -198,7 +198,7 @@ touch "$output_file_name"
 chmod 777 tmp
 
 make -C codeC
-./exe temp.dat $station_type $consumer_type $power_plant_id $output_file_name
+./exe $station_type $consumer_type $power_plant_id $output_file_name
 
 
 # THEN SORT ORDER
