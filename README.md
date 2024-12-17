@@ -8,9 +8,9 @@ Project report: [PDF](documents/report.pdf) 📑<br>
 0. **🔧 Before Installing**
   - Make sure to use Linux or to have downloaded a Linux terminal. <br>
     <a href="https://www.youtube.com/watch?v=Hwbii-fnKIk">
-     <img src="https://go-skill-icons.vercel.app/api/icons?i=linux,wsl" alt="Linux"/>
+     <img src="https://go-skill-icons.vercel.app/api/icons?i=linux,wsl,debian,ubuntu" alt="Linux"/>
     </a>
-         <img src="https://go-skill-icons.vercel.app/api/icons?i=debian,ubuntu" alt="Linux"/>
+
 
 
 1. **🚀 Running the Project**
