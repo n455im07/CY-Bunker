@@ -149,7 +149,7 @@ bash loading.sh
 start_timer=$(date +%s)
 
 input_csv=$file_csv
-output_csv="tmp/temp.dat"
+output_csv="tmp/temp.csv"
 
 
 # HVB COMP
@@ -186,9 +186,9 @@ fi
 
 output_file_name=""
 if [ $power_plant_id -eq 0 ];then
-	output_file_name="tmp/${station_type}_${consumer_type}.dat"
+	output_file_name="tmp/${station_type}_${consumer_type}.csv"
 else
-	output_file_name="tmp/${station_type}_${consumer_type}_${power_plant_id}.dat"
+	output_file_name="tmp/${station_type}_${consumer_type}_${power_plant_id}.csv"
 fi
 
 touch "$output_file_name"
