@@ -243,17 +243,7 @@ int main(int argc, char* argv[]){
    
    // FREE AVL !!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-   
-   FILE* file;
-   const char* filename = argv[1];
-   fopen(filename, "r");
 
-  if ( file == NULL){
-    printf("Error file");
-    exit(1);
-  }
-
-
-
+return 0
 
 }

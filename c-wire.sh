@@ -180,28 +180,24 @@ if [ ! -z "$power_plant_id" ]; then
     awk -F ";" -v id="$power_plant_id" '$1 == id {print $0}' "$output_csv" > "${output_csv}.tmp" # -v = variable
     mv "${output_csv}.tmp" "$output_csv"
 else
-	$power_plant_id = 0
+	power_plant_id=0
 fi
 
 output_file_name=""
 if [ $power_plant_id -eq 0 ];then
-	output_file_name="${station_type}_${consumer_type}.dat"
+	output_file_name="tmp/${station_type}_${consumer_type}.dat"
 else
-	output_file_name="${station_type}_${consumer_type}_${power_plant_id}.dat"
+	output_file_name="tmp/${station_type}_${consumer_type}_${power_plant_id}.dat"
 fi
 
-touch "tmp/$output_file_name"
-
-
-
+touch "$output_file_name"
 
 # C PROGRAMM
 
 chmod 777 tmp
 
-#FAIRE APPEL AU MAKE GCC INTERDIT DANS LE SHELL
-
-#./exe temp.dat $station_type $consumer_type $power_plant_id  
+make -C codeC
+./exe temp.dat $station_type $consumer_type $power_plant_id $output_file_name
 
 
 # THEN SORT ORDER
