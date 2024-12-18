@@ -23,4 +23,3 @@ clean:
 
 run: $(TARGET)
 	@./$(TARGET) temp.dat hvb other_argument
-
