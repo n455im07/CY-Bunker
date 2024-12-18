@@ -1,8 +1,8 @@
 #!/bin/bash
 clear
-printf '\033[1;32;32m'
-bash loading.sh
-printf '\033[0m'
+
+bash codeShell/fakeloading.sh
+
 ##################################################################################################	
 ##### F O N C T I O N S ##########################################################################
 ##################################################################################################
@@ -24,10 +24,11 @@ printf '\033[0m'
 		slow_print "User manual : " 
 		slow_print "   #1 : CSV File"
 		slow_print "   #2 : Station type ( hva, hvb, lv )" 
-		slow_print "   #3 : Consumer type ( comp, indiv, all )   Note : comp is only works with hva or hvb in #2."
+		slow_print "   #3 : Consumer type ( comp, indiv, all )   Note : hva and hvb only works with comp !"
 		slow_print "   #4 : Power plant id > 0"
 		slow_print "Option : -h : Display help manual"
 		slow_print "   -h : Display help manual"
+		sleep 1
 	}
 	
 	
@@ -44,10 +45,10 @@ printf '\033[0m'
 
 
 #----Help if -h option is used
-
 	for arg in "$@";do
 		if [ "$arg" == "-h" ];then
 			help_manual
+			sleep 1
 			exit 1
 		fi
 	done
@@ -120,14 +121,15 @@ printf '\033[0m'
 		fi
 	fi
 
-
+bash codeShell/loading.sh&
+loading_pid=$!
 #----Check if the executable exists
 
 	if [ ! -x exe ]; then
 	    slow_print "/!\ Error : Executable doesn't exist. Compiling..."
 	    echo
-		make clean -C codeC
-	    make -C codeC
+	    make clean -C codeC
+	    make -s -C codeC
 	fi
 
 #----Check if tmp directory exists
@@ -143,7 +145,6 @@ printf '\033[0m'
 	if [ ! -d graphs ]; then
 	    mkdir graphs
 	fi
-
 
 # IF ERROR TIME ELAPSED = 0s
 # Initialize duration
@@ -203,8 +204,14 @@ fi
 
 chmod 777 tmp
 
-make -C codeC 
-./exe $station_type $consumer_type $power_plant_id $output_file_name
+make -s -C codeC 
+
+./exe $station_type $consumer_type $power_plant_id $output_file_name 
+kill $loading_pid
+clear
+sleep 0.1
+
+
 
 
 # Sort for LV ALL MIN MAX
@@ -219,7 +226,5 @@ find codeC -type f -name "*.o" -exec rm -f {} \;
 
 #print Treatment time
 
-#a changer car bien moche
 
 slow_print "Treatment Time:$duration seconds"
-
