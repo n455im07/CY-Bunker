@@ -203,7 +203,7 @@ fi
 
 chmod 777 tmp
 
-make -C codeC
+make -C codeC 
 ./exe $station_type $consumer_type $power_plant_id $output_file_name
 
 
@@ -220,6 +220,6 @@ find codeC -type f -name "*.o" -exec rm -f {} \;
 #print Treatment time
 
 #a changer car bien moche
-echo -e "\033[1;35m╔════════════════════════════════════════╗\033[0m"
-echo -e "\033[1;35m║ \033[1;37mTreatment Time: \033[1;32m$duration seconds\033[1;35m             ║\033[0m"
-echo -e "\033[1;35m╚════════════════════════════════════════╝\033[0m"
+
+slow_print "Treatment Time:$duration seconds"
+
