@@ -228,3 +228,14 @@ find codeC -type f -name "*.o" -exec rm -f {} \;
 
 
 slow_print "Treatment Time:$duration seconds"
+
+
+slow_print "Treatment Time: $duration seconds"
+notify-send "Treatment finished!" "File $output_file_name generated sucessfully."
+slow_print "Treatment finished! File $output_file_name generated sucessfully."
+if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
+	notify-send "Treatment finished!" "File tmp/lv_allminmax.csv generated sucessfully"
+        slow_print "Treatment finished! File tmp/lv_allminmax.csv generated sucessfully."
+fi
+
+
