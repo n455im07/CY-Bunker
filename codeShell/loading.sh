@@ -2,21 +2,21 @@
 printf '\033[1;32;32m'
 speed=0.1
 
-# Définir un fichier audio par défaut à jouer
-audio_file="codeShell/Stuka Dive Sound.mp3"  # Remplacez par le chemin vers votre fichier audio
+# Défine the audio file 
+audio_file="/mnt/data/CY-Bunker-master/CY-Bunker-master/codeShell/Stuka Dive Sound.mp3"  
 
-# Vérifier si le fichier audio existe et est lisible
+# Vérifying if the audio file existe and if its not lisible
 if [ ! -f "$audio_file" ]; then
-    echo "Erreur : Le fichier audio par défaut n'existe pas ou n'est pas lisible."
+    echo "Error : the audio file is not existing or not lisible"
     exit 1
 else
-    echo "Le fichier audio trouvé : $audio_file"
+    echo "audio file found: $audio_file"
 fi
 
-# Lire l'audio en arrière-plan
-mpv --no-video --loop "$audio_file" &  # Utilisez --loop si vous souhaitez que l'audio se répète
+# begin the audio
+mpv --no-video --loop "$audio_file" &  
 
-# Récupérer le PID du processus audio pour pouvoir le tuer plus tard
+# recover the PID to kill the sound after
 audio_pid=$!
 
 p="    ╔════════════════════════════════════════════════════════════════╗
@@ -121,7 +121,7 @@ while true; do
 done
 
 ##
-# Après avoir terminé l'animation de chargement, vous pouvez tuer le processus audio
+# Kill the audio when the loading is done
 kill $audio_pid
 printf '\033[0m'
 
