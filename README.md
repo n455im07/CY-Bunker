@@ -30,7 +30,7 @@ Project report: [PDF](documents/report.pdf) 📑<br>
 2. **⚙️ Options**
    - `<CSV File>`: Path to the CSV file.
    - `<Station Type>`: Type of station (`hva`, `hvb`, `lv`).
-   - `<Consumer Type>`: Type of consumer (`comp`, `indiv`, `all`). Note: `comp` only works with `hva` or `hvb` station types.
+   - `<Consumer Type>`: Type of consumer (`comp`, `indiv`, `all`). Note: `hva` and `hvb` stations only works with `comp` consumers.
    - `[Power Plant ID]`: (Optional) ID of the power plant, must be a positive number.
 
 3. **❓ Help Manual**
