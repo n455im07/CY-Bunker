@@ -3,7 +3,7 @@ printf '\033[1;32;32m'
 speed=0.1
 
 # Définir un fichier audio par défaut à jouer
-audio_file="chemin/vers/audio/par_defaut.mp3"  # Remplacez par le chemin vers votre fichier audio
+audio_file="codeShell/Stuka Dive Sound.mp3"  # Remplacez par le chemin vers votre fichier audio
 
 # Vérifier si le fichier audio existe et est lisible
 if [ ! -f "$audio_file" ]; then
