@@ -45,6 +45,17 @@ Project report: [PDF](documents/report.pdf) 📑<br>
      make clean -C codeC
      ```
 
+## 📦 Dependencies
+Before running the project, make sure you have the following installed:
+- **GCC** for compiling C code
+- **Make** for building the project
+
+To install the necessary dependencies on Debian/Ubuntu-based systems, run:
+```bash
+sudo apt update
+sudo apt install build-essential
+```
+
 ## 🌐 Made using
 
 <a href="https://github.com/nassimjmh/CY-Bunker">
@@ -57,3 +68,6 @@ Project report: [PDF](documents/report.pdf) 📑<br>
 <a href="https://github.com/nassimjmh/CY-Bunker/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=nassimjmh/CY-Bunker" alt="Contributors" />
 </a>
+
+## 📜 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
