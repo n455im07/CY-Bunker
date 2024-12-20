@@ -1,10 +1,11 @@
 #!/bin/bash
 clear
 
-nohup xdg-open codeShell/nuclear.mp3  > /dev/null 2>&1 &
-disown
+#nohup xdg-open codeShell/nuclear.mp3  > /dev/null 2>&1 &
+#disown
 bash codeShell/login.sh
 bash codeShell/fakeloading.sh
+LC_TIME=ru_RU.UTF-8 date
 
 ##################################################################################################	
 ##### F O N C T I O N S ##########################################################################
@@ -252,60 +253,61 @@ notify-send "Treatment finished!" "File $output_file_name generated sucessfully.
 if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
 	notify-send "Treatment finished!" "File tmp/lv_allminmax.csv generated sucessfully"
 fi
-LC_TIME=ru_RU.UTF-8 date
 p=" 
                                                                       
-   ▗▄▄▖▗▖  ▗▖▗▄▄▖ ▗▖ ▗▖▗▖  ▗▖▗▖ ▗▖▗▄▄▄▖▗▄▄▖ 
-▐▌    ▝▚▞▘ ▐▌ ▐▌▐▌ ▐▌▐▛▚▖▐▌▐▌▗▞▘▐▌   ▐▌ ▐▌
-▐▌     ▐▌  ▐▛▀▚▖▐▌ ▐▌▐▌ ▝▜▌▐▛▚▖ ▐▛▀▀▘▐▛▀▚▖
-▝▚▄▄▖  ▐▌  ▐▙▄▞▘▝▚▄▞▘▐▌  ▐▌▐▌ ▐▌▐▙▄▄▖▐▌ ▐▌ 
- _________________________________________________________________________
-                                             
- ➡︎ USEFULL FILES :           ▍ ➡︎ RADIATIONS AS TIME GOES BY :       
-                             ▍   ☢                  ◼︎◼︎
-CY-Bunker/                   ▍   |                ◼︎
-├── codeC/                   ▍   |             ◼︎◼︎◼︎
-│ ├── include/               ▍   |             ◼︎
-│ └── main.c                 ▍   |       ◼︎◼︎◼︎◼︎◼︎◼︎
-├── codeShell/               ▍   |      ◼︎
-│ └── c-wire.sh              ▍   |      ◼︎
-├── documents                ▍   |   ◼︎◼︎◼︎
-│ └── subject.pdf            ▍   |◼︎◼︎◼︎
-└── c-wire_V25.dat           ▍   ☢________________________☢
-├── tmp/                     ▍  
-  └── temp_file.tmp          ▍
-▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ ▍▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂      
-                             ▍
-➡︎ HEXA-DATA :                ▍ ➡︎ TREATMENT TIME: 
-                             ▍                          
+  ██████╗██╗   ██╗     ██████╗ ██╗   ██╗███╗   ██╗██╗  ██╗███████╗██████╗ 
+ ██╔════╝╚██╗ ██╔╝     ██╔══██╗██║   ██║████╗  ██║██║ ██╔╝██╔════╝██╔══██╗
+ ██║      ╚████╔╝█████╗██████╔╝██║   ██║██╔██╗ ██║█████╔╝ █████╗  ██████╔╝
+ ██║       ╚██╔╝ ╚════╝██╔══██╗██║   ██║██║╚██╗██║██╔═██╗ ██╔══╝  ██╔══██╗
+ ╚██████╗   ██║        ██████╔╝╚██████╔╝██║ ╚████║██║  ██╗███████╗██║  ██║
+  ╚═════╝   ╚═╝        ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝                 
 "
-
-
-
-
+p1=" 
+    ╔═════════════════════════════╗  ╔═════════════════════════════════╗                                            
+    ║ ⚒︎ USEFULL FILES :           ║  ║ ⚒︎ RADIATIONS AS TIME GOES BY :  ║       
+    ║                             ║  ║                                 ║
+    ║  ⛘ CY-Bunker/               ║  ║   ☢                             ║
+    ║  ├──⛘ codeC/                ║  ║   ┃                  ╭──        ║
+    ║  │  ├── include/            ║  ║   ┃                  │          ║
+    ║  │  └── main.c              ║  ║   ┃             ╭────╯          ║
+    ║  ├──⛘ codeShell/            ║  ║   ┃             │               ║
+    ║  │  └── c-wire.sh           ║  ║   ┃         ╭───╯               ║
+    ║  ├──⛘ documents             ║  ║   ┃     ╭───╯                   ║
+    ║  │  └── subject.pdf         ║  ║   ┃  ╭──╯                       ║
+    ║  ├── c-wire_V25.dat         ║  ║   ┃──╯                          ║
+    ║  └──⛘ tmp/                  ║  ║   ┗━━━━━━━━━━━━━━━━━━━━━━━━━☢   ║
+    ║     └── temp_file.tmp       ║  ║                                 ║
+    ╚═════════════════════════════╝  ╚═════════════════════════════════╝   
+    ╔═════════════════════════════╗  ╔═════════════════════════════════╗
+    ║  ⚒︎ HEXA-DATA :              ║  ║ ⚒︎ TREATMENT TIME:               ║
+    ║                             ║  ║                                 ║                   
+"
 printf "$p" 
-
-
-
+LC_TIME=ru_RU.UTF-8 date
+printf "$p1"
 if [ $duration -ge 60 ]; then
     minutes=$(($duration / 60))
     seconds=$(($duration % 60))
     if [ $seconds -eq 0 ]; then
-	printf "0xA1B2C3D4E5F60789           ▍ $minutes minutes\n"
+	printf "    ║  0xA1B2C3D4E5F60789         ║  ║  $minutes minutes\n"
     else
-        printf "0xA1B2C3D4E5F60789           ▍ $minutes minutes and $seconds seconds\n"
+        printf "    ║  0xA1B2C3D4E5F60789         ║  ║  $minutes minutes and $seconds seconds\n"
     fi
 else
-    printf "0xA1B2C3D4E5F60789           ▍ $seconds seconds\n"
+    printf "    ║  0xA1B2C3D4E5F60789         ║  ║    $duration seconds\n"
 fi
-
-
-printf "0x8C3F7D1A9B2E6F48C0         ▍▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n"
-printf "0xD23E7B5A9C1A3E8F2A         ▍\n"
-printf "0xA1B2C3D4E5F60789           ▍File $output_file_name generated sucessfully.\n"
-printf "0x7F8A9D4C0A1F3E56C7         ▍\n"
+printf "    ║  0x8C3F7D1A9B2E6F48C0       ║  ║                                 ║
+    ║  0xD23E7B5A9C1A3E8F2A       ║  ║                                 ║
+    ║  0xA1B2C3D4E5F60789         ║  ║                                 ║
+    ║                             ║  ║                                 ║
+    ╚═════════════════════════════╝  ╚═════════════════════════════════╝\n"
+    
+printf "    ╔══════════════════════════════════════════════════════════════════╗\n"
+printf "    ║                                                                  ║\n"
+printf "    ║  ⚒︎ File $output_file_name generated sucessfully.     \n"
 if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
-        printf "                             ▍File tmp/lv_allminmax.csv generated sucessfully.\n"
-        printf "                             ▍"
+        printf "    ║  ⚒︎ File tmp/lv_allminmax.csv generated sucessfully.\n"
 fi
+printf "    ║                                                                  ║    \n"
+printf "    ╚══════════════════════════════════════════════════════════════════╝\n"
 printf '\033[0m'
