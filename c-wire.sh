@@ -236,7 +236,7 @@ sleep 0.1
 
 
 end_time=$(date +%s)
-duration=$(($end_time - $start_timer)) #bc convert nano to seconds 
+duration=$(($end_time - $start_timer))
 
 # Remove .o files in codeC/
 
@@ -281,8 +281,26 @@ CY-Bunker/                   ▍   |                ◼︎
                              ▍                          
 "
 
+
+
+
 printf "$p" 
-printf "0xA1B2C3D4E5F60789           ▍ $duration seconds\n"
+
+
+
+if [ $duration -ge 60 ]; then
+    minutes=$(($duration / 60))
+    seconds=$(($duration % 60))
+    if [ $seconds -eq 0 ]; then
+	printf "0xA1B2C3D4E5F60789           ▍ $minutes minutes\n"
+    else
+        printf "0xA1B2C3D4E5F60789           ▍ $minutes minutes and $seconds seconds\n"
+    fi
+else
+    printf "0xA1B2C3D4E5F60789           ▍ $seconds seconds\n"
+fi
+
+
 printf "0x8C3F7D1A9B2E6F48C0         ▍▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n"
 printf "0xD23E7B5A9C1A3E8F2A         ▍\n"
 printf "0xA1B2C3D4E5F60789           ▍File $output_file_name generated sucessfully.\n"
