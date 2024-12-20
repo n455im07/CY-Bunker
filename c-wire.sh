@@ -252,6 +252,7 @@ notify-send "Treatment finished!" "File $output_file_name generated sucessfully.
 if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
 	notify-send "Treatment finished!" "File tmp/lv_allminmax.csv generated sucessfully"
 fi
+LC_TIME=ru_RU.UTF-8 date
 p=" 
                                                                       
    ▗▄▄▖▗▖  ▗▖▗▄▄▖ ▗▖ ▗▖▗▖  ▗▖▗▖ ▗▖▗▄▄▄▖▗▄▄▖ 
