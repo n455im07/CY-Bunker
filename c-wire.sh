@@ -1,5 +1,55 @@
 #!/bin/bash
 clear
+# Définir les frames de l'avion
+plane=(
+"                %@&                                                          
+                 /,&*/@.                                                        
+                  ,*(***.(/                                                     
+                   .(#%*.###(@                        @@@@@@&@/                 
+                     ,, .*/#.,,,(# ,/%@@@@&&%%@@@%#/,/#.,,,#.#/*/(@@*           
+  (/##((/***,.  @@@*  , ,#%(&  ,,(....../.......,....,./&@@@@&#/,.*,... ,@@#/,  
+             (((((#@@#&#(*(**(#%%#(((((#&@@@%#/(####*..#&(                      
+                                  .,@@@@@@@(/(###**,,,&                         
+                                       ,.,                                      
+"
+)
+
+
+# Afficher l'avion en mouvement
+for i in {1..20}; do
+    clear
+    # Affichage de l'avion
+    printf "%${i}s%s\n" "" "${plane[0]}"
+    printf "%${i}s%s\n" "" "${plane[1]}"
+  
+done
+
+# Larguer la bombe
+for j in {1..10}; do
+    clear
+    printf "%20s%s\n" "" "${plane[0]}"
+    printf "%20s%s\n" "" "${plane[1]}"
+    for k in $(seq 1 $j); do
+        echo
+    done
+    printf "%20s%s\n" "" "   O"
+    for line in "${city[@]}"; do
+        echo "$line"
+    done
+    sleep 0.1
+done
+
+# Explosion
+for frame in "*" " *** " "*******" "***********" "   "; do
+    clear
+    for _ in {1..10}; do echo; done
+    printf "%20s%s\n" "" "$frame"
+    sleep 0.2
+done
+
+
+
+
 
 bash codeShell/fakeloading.sh
 
@@ -121,6 +171,8 @@ bash codeShell/fakeloading.sh
 		fi
 	fi
 
+
+nohup xdg-open codeShell/nuclear.mp3  > /dev/null 2>&1 &
 bash codeShell/loading.sh&
 loading_pid=$!
 #----Check if the executable exists
