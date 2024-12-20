@@ -104,7 +104,5 @@ while true; do
 done
 
 ##
-# Kill the audio when the loading is done
-kill $audio_pid
 printf '\033[0m'
 
