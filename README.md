@@ -1,6 +1,6 @@
 # CY-Bunker ⚡
 
-Developed by ABAJOU Sofyane, EL JARJINI Hicham, and JAMHOUR Nassim. 
+CY-Bunker is a engineering project developed by ABAJOU Sofyane, EL JARJINI Hicham, and JAMHOUR Nassim. (Year 2024) 
 Original subject: [C-WIRE](documents/subject.pdf) 📄<br>
 Project report: [PDF](documents/report.pdf) 📑<br>
 
