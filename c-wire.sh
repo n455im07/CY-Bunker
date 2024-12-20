@@ -1,55 +1,5 @@
 #!/bin/bash
 clear
-# Définir les frames de l'avion
-plane=(
-"                %@&                                                          
-                 /,&*/@.                                                        
-                  ,*(***.(/                                                     
-                   .(#%*.###(@                        @@@@@@&@/                 
-                     ,, .*/#.,,,(# ,/%@@@@&&%%@@@%#/,/#.,,,#.#/*/(@@*           
-  (/##((/***,.  @@@*  , ,#%(&  ,,(....../.......,....,./&@@@@&#/,.*,... ,@@#/,  
-             (((((#@@#&#(*(**(#%%#(((((#&@@@%#/(####*..#&(                      
-                                  .,@@@@@@@(/(###**,,,&                         
-                                       ,.,                                      
-"
-)
-
-
-# Afficher l'avion en mouvement
-for i in {1..20}; do
-    clear
-    # Affichage de l'avion
-    printf "%${i}s%s\n" "" "${plane[0]}"
-    printf "%${i}s%s\n" "" "${plane[1]}"
-  
-done
-
-# Larguer la bombe
-for j in {1..10}; do
-    clear
-    printf "%20s%s\n" "" "${plane[0]}"
-    printf "%20s%s\n" "" "${plane[1]}"
-    for k in $(seq 1 $j); do
-        echo
-    done
-    printf "%20s%s\n" "" "   O"
-    for line in "${city[@]}"; do
-        echo "$line"
-    done
-    sleep 0.1
-done
-
-# Explosion
-for frame in "*" " *** " "*******" "***********" "   "; do
-    clear
-    for _ in {1..10}; do echo; done
-    printf "%20s%s\n" "" "$frame"
-    sleep 0.2
-done
-
-
-
-
 
 bash codeShell/fakeloading.sh
 
@@ -171,8 +121,6 @@ bash codeShell/fakeloading.sh
 		fi
 	fi
 
-
-nohup xdg-open codeShell/nuclear.mp3  > /dev/null 2>&1 &
 bash codeShell/loading.sh&
 loading_pid=$!
 #----Check if the executable exists
@@ -245,10 +193,6 @@ fi
 
 touch "$output_file_name"
 
-if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
-	touch "tmp/lv_allminmax.csv"
-fi
-
 
 # C PROGRAMM
 
@@ -257,6 +201,27 @@ chmod 777 tmp
 make -s -C codeC 
 
 ./exe $station_type $consumer_type $power_plant_id $output_file_name 
+
+if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
+	tail -n +2 "$output_file_name" | sort -t":" -k3 -n  > "tmp/lv_allminmax.csv.tmp"
+	
+	if [ $(wc -l < "$output_file_name") -gt 21 ]; then
+		{
+		head -n 10 "tmp/lv_allminmax.csv.tmp"
+		tail -n 10 "tmp/lv_allminmax.csv.tmp" 
+		} > "tmp/minmax.csv.tmp"
+	else
+		mv "tmp/lv_allminmax.csv.tmp" "tmp/minmax.csv.tmp"
+	fi
+	{
+	head -n 2 "tmp/lv_allminmax.csv"
+	awk -F":" '{diff = $2 - $3; print $1 ":" $2 ":" $3 ":" diff}' "tmp/minmax.csv.tmp" | sort -t":" -k4 -n | cut -d":" -f1-3
+	} > "tmp/lv_allminmax.csv.tmp"
+
+	mv "tmp/lv_allminmax.csv.tmp" "tmp/lv_allminmax.csv"
+	rm -rf tmp/*.tmp
+fi
+
 kill $loading_pid
 clear
 sleep 0.1
