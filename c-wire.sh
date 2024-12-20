@@ -246,11 +246,49 @@ find codeC -type f -name "*.o" -exec rm -f {} \;
 
 
 
-slow_print "Treatment Time: $duration seconds"
+
 notify-send "Treatment finished!" "File $output_file_name generated sucessfully."
-slow_print "Treatment finished! File $output_file_name generated sucessfully."
+
 if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
 	notify-send "Treatment finished!" "File tmp/lv_allminmax.csv generated sucessfully"
-        slow_print "Treatment finished! File tmp/lv_allminmax.csv generated sucessfully."
 fi
+p=" 
+                                                                      
+  ██████╗██╗   ██╗     ██████╗ ██╗   ██╗███╗   ██╗██╗  ██╗███████╗██████╗ 
+ ██╔════╝╚██╗ ██╔╝     ██╔══██╗██║   ██║████╗  ██║██║ ██╔╝██╔════╝██╔══██╗
+ ██║      ╚████╔╝█████╗██████╔╝██║   ██║██╔██╗ ██║█████╔╝ █████╗  ██████╔╝
+ ██║       ╚██╔╝ ╚════╝██╔══██╗██║   ██║██║╚██╗██║██╔═██╗ ██╔══╝  ██╔══██╗
+ ╚██████╗   ██║        ██████╔╝╚██████╔╝██║ ╚████║██║  ██╗███████╗██║  ██║
+  ╚═════╝   ╚═╝        ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+ _________________________________________________________________________
+                                             
+ ➡︎ USEFULL FILES :           ▍ ➡︎ RADIATIONS AS TIME GOES BY :       
+                             ▍   ☢                  ◼︎◼︎
+CY-Bunker/                   ▍   |                ◼︎
+├── codeC/                   ▍   |             ◼︎◼︎◼︎
+│ ├── include/               ▍   |             ◼︎
+│ └── main.c                 ▍   |       ◼︎◼︎◼︎◼︎◼︎◼︎
+├── codeShell/               ▍   |      ◼︎
+│ └── c-wire.sh              ▍   |      ◼︎
+├── documents                ▍   |   ◼︎◼︎◼︎
+│ └── subject.pdf            ▍   |◼︎◼︎◼︎
+└── c-wire_V25.dat           ▍   ☢________________________☢
+├── tmp/                     ▍  
+  └── temp_file.tmp          ▍
+▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ ▍▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂      
+                             ▍
+➡︎ HEXA-DATA :                ▍ ➡︎ TREATMENT TIME: 
+                             ▍                          
+"
 
+printf "$p" 
+printf "0xA1B2C3D4E5F60789           ▍ $duration seconds\n"
+printf "0x8C3F7D1A9B2E6F48C0         ▍▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n"
+printf "0xD23E7B5A9C1A3E8F2A         ▍\n"
+printf "0xA1B2C3D4E5F60789           ▍File $output_file_name generated sucessfully.\n"
+printf "0x7F8A9D4C0A1F3E56C7         ▍\n"
+if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
+        printf "                             ▍File tmp/lv_allminmax.csv generated sucessfully.\n"
+        printf "                             ▍"
+fi
+printf '\033[0m'
