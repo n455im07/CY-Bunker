@@ -1,11 +1,10 @@
 #!/bin/bash
 clear
 
-#nohup xdg-open codeShell/nuclear.mp3  > /dev/null 2>&1 &
-#disown
+nohup xdg-open codeShell/nuclear.mp3  > /dev/null 2>&1 &
+disown
 bash codeShell/login.sh
 bash codeShell/fakeloading.sh
-LC_TIME=ru_RU.UTF-8 date
 
 ##################################################################################################	
 ##### F O N C T I O N S ##########################################################################
