@@ -1,10 +1,6 @@
 #!/bin/bash
 clear
 
-nohup xdg-open codeShell/nuclear.mp3  > /dev/null 2>&1 &
-disown
-bash codeShell/login.sh
-bash codeShell/fakeloading.sh
 
 ##################################################################################################	
 ##### F O N C T I O N S ##########################################################################
@@ -124,6 +120,10 @@ bash codeShell/fakeloading.sh
 		fi
 	fi
 
+nohup xdg-open codeShell/nuclear.mp3  > /dev/null 2>&1 &
+disown
+bash codeShell/login.sh
+bash codeShell/fakeloading.sh
 bash codeShell/loading.sh&
 loading_pid=$!
 #----Check if the executable exists
