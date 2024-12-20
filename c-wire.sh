@@ -305,7 +305,7 @@ printf "    ╔═════════════════════�
 printf "    ║                                                                  ║\n"
 printf "    ║  ⚒︎ File $output_file_name generated sucessfully.     \n"
 if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
-        printf "    ║  ⚒︎ File tmp/lv_allminmax.csv generated sucessfully.\n"
+        printf "    ║  ⚒︎ File tmp/lv_allminmax.csv generated sucessfully.              ║\n"
 fi
 printf "    ║                                                                  ║    \n"
 printf "    ╚══════════════════════════════════════════════════════════════════╝\n"
