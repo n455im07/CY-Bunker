@@ -194,7 +194,7 @@ if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
 		{
 		head -n 10 "tmp/lv_allminmax.csv.tmp"
 		tail -n 10 "tmp/lv_allminmax.csv.tmp" 
-		} > "tmp/minmax.csv.tmp"
+		} > "tmp/minmax.csv.tmp" # Put the 10 lowest and 10 highest consumptions in a temporary file
 	else
 		mv "tmp/lv_allminmax.csv.tmp" "tmp/minmax.csv.tmp" # If there are less than 21 lines, just rename the file
 	fi
@@ -204,7 +204,7 @@ if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
 	} > "tmp/lv_allminmax.csv.tmp" # Get the 2 lines header and the 10 lowest and 10 highest consumptions sorted by difference between consumption and production
 
 	mv "tmp/lv_allminmax.csv.tmp" "tmp/lv_allminmax.csv" # Rename the file
-	rm -rf tmp/*.tmp
+	rm -rf tmp/*.tmp # Remove temporary files
 fi
 
 ##################################################################################################	
