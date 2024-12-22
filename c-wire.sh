@@ -222,13 +222,6 @@ duration=$(($end_time - $start_timer))
 #---- Remove object files
 find codeC -type f -name "*.o" -exec rm -f {} \;
 
-
-#---- Send notifications to warn the user that the treatment is finished
-notify-send "Treatment finished!" "File $output_file_name generated sucessfully."
-if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
-	notify-send "Treatment finished!" "File tmp/lv_allminmax.csv generated sucessfully"
-fi
-
 p=" 
                                                                       
   ██████╗██╗   ██╗     ██████╗ ██╗   ██╗███╗   ██╗██╗  ██╗███████╗██████╗ 
@@ -259,7 +252,7 @@ p1="
     ║                             ║  ║                                 ║                   
 "
 printf "$p" 
-LC_TIME=ru_RU.UTF-8 date # Display the date in Russian
+TZ='Europe/Moscow' date --date="$(date +'%m-%d %H:%M:%S' | sed 's/^/1971-/') +2 hours" # Display the date
 printf "$p1"
 
 #---- Convert the duration in minutes and seconds and display it
