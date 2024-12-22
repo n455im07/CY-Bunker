@@ -185,6 +185,12 @@ make -s -C codeC
 ./exe $station_type $consumer_type $power_plant_id $output_file_name 
 
 
+#---- Sort the output file depending on the capacity
+{
+  head -n 1 "$output_file_name" # Get the header
+  tail -n +2 "$output_file_name" | sort -t":" -k2 -n # Sort the rest of the file
+} > "tmp/sorted_output.csv" && mv "tmp/sorted_output.csv" "$output_file_name"
+
 #---- Specific treatment for LV ALL
 if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
 	tail -n +2 "$output_file_name" | sort -t":" -k3 -n  > "tmp/lv_allminmax.csv.tmp" # Sort the output file by consumption without the header
