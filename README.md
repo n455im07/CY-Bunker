@@ -26,7 +26,7 @@ Project report: [PDF](documents/report.pdf) 📑<br>
      ```sh
      ./c-wire.sh input/c-wire_v00.dat hvb comp 1
      ```
-   - Output files will be located in tmp/ folder
+   - Output files will be located in tmp folder
 
 2. **⚙️ Options**
    - `<CSV File>`: Path to the CSV file. (an example input file is located in input folder)
