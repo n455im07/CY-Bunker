@@ -38,7 +38,7 @@ AVL* treatment(AVL* pavl, char* stationType){
                 token = strtok(NULL, ";"); // Get the next data
             }
             //---- Insert the data in the AVL tree
-            int h = 0; // Initialize balance factor
+            int h = 0; // Initialize balance variable
             pavl = insertAVL(pavl, id, &h, capacity, load); // Insert each data in the AVL tree
         }
         fclose(file); // Close the file
