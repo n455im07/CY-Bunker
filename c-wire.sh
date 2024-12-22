@@ -32,7 +32,7 @@ clear
 ##### V E R I F I C A T I O N ####################################################################
 ##################################################################################################
 
-#----Help if -h option is used
+#---- Help if -h option is used
 	for arg in "$@";do
 		if [ "$arg" == "-h" ];then
 			help_manual
@@ -41,7 +41,7 @@ clear
 		fi
 	done
 
-#----Check if the number of arguments is correct
+#---- Check if the number of arguments is correct
 	if  [ $# -eq 0 ]; then
 	    slow_print "/!\ Error : No argument provided."
 	    echo
@@ -49,7 +49,7 @@ clear
 	    exit 1
 	fi
 
-#----Check if file_csv is a file and is readable
+#---- Check if file_csv is a file and is readable
 	file_csv=$1
 	
 	if [ ! -f $file_csv ]; then
