@@ -2,7 +2,7 @@
 
 CY-Bunker is a engineering school project developed by ABAJOU Sofyane, EL JARJINI Hicham, and JAMHOUR Nassim. (Year 2024-2025) <br>
 Original subject: [C-WIRE](documents/subject.pdf) 📄<br>
-Project report: [PDF](documents/report.pdf) 📑<br>
+Project report in French: [PDF](documents/report.pdf) 📑<br>
 
 ## 📋 Instructions
 0. **🔧 Before Installing**
