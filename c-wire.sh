@@ -120,8 +120,6 @@ clear
 		fi
 	fi
 
-nohup xdg-open codeShell/nuclear.mp3  > /dev/null 2>&1 &
-disown
 bash codeShell/login.sh
 bash codeShell/fakeloading.sh
 bash codeShell/loading.sh&
