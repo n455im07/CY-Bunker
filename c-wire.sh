@@ -7,7 +7,7 @@ clear
 ##################################################################################################
 
 
-	function slow_print(){
+	function slow_print(){ # Function to print slowly (text)
 		printf '\033[1;32;32m'
 		local phrase="$1"
 		for ((i=0;i<${#phrase};i++)); do
@@ -19,7 +19,7 @@ clear
 	}
 
 
-	function help_manual() {
+	function help_manual() { # Display help manual
 		slow_print "User manual : " 
 		slow_print "   #1 : CSV File"
 		slow_print "   #2 : Station type ( hva, hvb, lv )" 
@@ -30,13 +30,6 @@ clear
 		sleep 1
 	}
 	
-	
-##################################################################################################	
-##### O T H E R S ################################################################################
-##################################################################################################
-
-
-
 
 ##################################################################################################	
 ##### V E R I F I C A T I O N ####################################################################
@@ -53,7 +46,6 @@ clear
 	done
 
 #----Check if the number of arguments is correct
-
 	if  [ $# -eq 0 ]; then
 	    slow_print "/!\ Error : No argument provided."
 	    echo
@@ -62,7 +54,6 @@ clear
 	fi
 
 #----Check if file_csv is a file and is readable
-
 	file_csv=$1
 	
 	if [ ! -f $file_csv ]; then
@@ -79,8 +70,7 @@ clear
 	    exit 1
 	fi
 
-#----Station type
-
+#---- Check if station type is valid
 	station_type=$2
 	
 	if [ "$station_type" != "hvb" ] && [ "$station_type" != "hva" ] && [ "$station_type" != "lv" ]; then
@@ -90,8 +80,7 @@ clear
 	    exit 1
 	fi
 
-#----Consumer type
-
+#---- Check if consumer type is valid
 	consumer_type=$3
 	
 	if [ "$consumer_type" != "comp" ] && [ "$consumer_type" != "indiv" ] && [ "$consumer_type" != "all" ]; then
@@ -108,8 +97,7 @@ clear
 	    exit 1
 	fi
 
-#----Power plant id (optional)
-
+#---- Check if power plant id is valid and is a positive number (if provided)
 	power_plant_id=$4 
 	if [ ! -z "$power_plant_id" ]; then
 		if [ "$power_plant_id" -le 0 ] || [[ ! "$power_plant_id" =~ ^[0-9]+$ ]]; then
@@ -120,50 +108,47 @@ clear
 		fi
 	fi
 
-bash codeShell/login.sh
-bash codeShell/fakeloading.sh
-bash codeShell/loading.sh&
-loading_pid=$!
-#----Check if the executable exists
+bash codeShell/login.sh # Display login page
 
+#---- Display loading page
+bash codeShell/fakeloading.sh 
+bash codeShell/loading.sh& 
+loading_pid=$! # Save the pid of the loading page
+
+
+#----Check if the executable exists
 	if [ ! -x exe ]; then
 	    make clean -s -C codeC
 	    make -s -C codeC
 	fi
 
 #----Check if tmp directory exists
-
 	if [ ! -d tmp ]; then
 	    mkdir tmp
 	else 
 	    rm -rf tmp/*
 	fi
 
-#----Check if graphs directory exists
 
-	if [ ! -d graphs ]; then
-	    mkdir graphs
-	fi
-
-# IF ERROR TIME ELAPSED = 0s
-# Initialize duration
+#---- Initialize duration
 start_timer=$(date +%s)
 
+#---- Initialize files variables
 input_csv=$file_csv
 output_csv="tmp/temp.csv"
 
 
-# HVB COMP
+#---- Extract data from the CSV file for HVB 
  if [ "$station_type" == "hvb" ]; then
 	tail -n +2 $input_csv | awk -F ";" '$2 != "-" && $3 == "-" {print $0}' > "$output_csv"
 fi
 
-# HVA COMP
+#---- Extract data from the CSV file for HVA
 if [ "$station_type" == "hva" ]; then
 	tail -n +2 $input_csv | awk -F ";" '$3 != "-" && $4 == "-" {print $0}' > "$output_csv"
 fi
 
-# LV COMP
+#---- Extract data from the CSV file for LV 
 if [ "$station_type" == "lv" ]; then
 	if [ "$consumer_type" == "comp" ]; then
 	tail -n +2 $input_csv | awk -F ";" '$4 != "-" && $6 == "-" {print $0}' > "$output_csv"
@@ -178,78 +163,70 @@ if [ "$station_type" == "lv" ]; then
 	fi
 fi
 
+#---- Extract data from the CSV file depending on the power plant id
 if [ ! -z "$power_plant_id" ]; then
     awk -F ";" -v id="$power_plant_id" '$1 == id {print $0}' "$output_csv" > "${output_csv}.tmp" # -v = variable
     mv "${output_csv}.tmp" "$output_csv"
 else
-	power_plant_id=0
+	power_plant_id=0 # Set power plant id to 0 if not provided
 fi
 
-output_file_name=""
+output_file_name="" # Initialize the output file name
 if [ $power_plant_id -eq 0 ];then
-	output_file_name="tmp/${station_type}_${consumer_type}.csv"
+	output_file_name="tmp/${station_type}_${consumer_type}.csv" # Set the output file name if no power plant id is provided
 else
-	output_file_name="tmp/${station_type}_${consumer_type}_${power_plant_id}.csv"
+	output_file_name="tmp/${station_type}_${consumer_type}_${power_plant_id}.csv" # Set the output file name if a power plant id is provided
 fi
 
-touch "$output_file_name"
+touch "$output_file_name" # Create the output file
 
-
-# C PROGRAMM
-
+#---- C file compilation and execution
 chmod 777 tmp
-
 make -s -C codeC 
 
 ./exe $station_type $consumer_type $power_plant_id $output_file_name 
 
+
+#---- Specific treatment for LV ALL
 if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
-	tail -n +2 "$output_file_name" | sort -t":" -k3 -n  > "tmp/lv_allminmax.csv.tmp"
+	tail -n +2 "$output_file_name" | sort -t":" -k3 -n  > "tmp/lv_allminmax.csv.tmp" # Sort the output file by consumption without the header
 	
-	if [ $(wc -l < "$output_file_name") -gt 21 ]; then
+	# Get the 10 lowest and 10 highest consumptions if there are more than 21 lines
+	if [ $(wc -l < "$output_file_name") -gt 21 ]; then 
 		{
 		head -n 10 "tmp/lv_allminmax.csv.tmp"
 		tail -n 10 "tmp/lv_allminmax.csv.tmp" 
 		} > "tmp/minmax.csv.tmp"
 	else
-		mv "tmp/lv_allminmax.csv.tmp" "tmp/minmax.csv.tmp"
+		mv "tmp/lv_allminmax.csv.tmp" "tmp/minmax.csv.tmp" # If there are less than 21 lines, just rename the file
 	fi
 	{
 	head -n 2 "tmp/lv_allminmax.csv"
 	awk -F":" '{diff = $2 - $3; print $1 ":" $2 ":" $3 ":" diff}' "tmp/minmax.csv.tmp" | sort -t":" -k4 -n | cut -d":" -f1-3
-	} > "tmp/lv_allminmax.csv.tmp"
+	} > "tmp/lv_allminmax.csv.tmp" # Get the 2 lines header and the 10 lowest and 10 highest consumptions sorted by difference between consumption and production
 
-	mv "tmp/lv_allminmax.csv.tmp" "tmp/lv_allminmax.csv"
+	mv "tmp/lv_allminmax.csv.tmp" "tmp/lv_allminmax.csv" # Rename the file
 	rm -rf tmp/*.tmp
 fi
 
-kill $loading_pid
+kill $loading_pid # Kill the loading page
 clear
 sleep 0.1
 
-
-
-
-# Sort for LV ALL MIN MAX
-
-
+#---- End of the treatment
 end_time=$(date +%s)
 duration=$(($end_time - $start_timer))
 
-# Remove .o files in codeC/
-
+#---- Remove object files
 find codeC -type f -name "*.o" -exec rm -f {} \;
 
-#print Treatment time
 
-
-
-
+#---- Send notifications to warn the user that the treatment is finished
 notify-send "Treatment finished!" "File $output_file_name generated sucessfully."
-
 if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
 	notify-send "Treatment finished!" "File tmp/lv_allminmax.csv generated sucessfully"
 fi
+
 p=" 
                                                                       
   ██████╗██╗   ██╗     ██████╗ ██╗   ██╗███╗   ██╗██╗  ██╗███████╗██████╗ 
@@ -280,8 +257,10 @@ p1="
     ║                             ║  ║                                 ║                   
 "
 printf "$p" 
-LC_TIME=ru_RU.UTF-8 date
+LC_TIME=ru_RU.UTF-8 date # Display the date in Russian
 printf "$p1"
+
+#---- Convert the duration in minutes and seconds and display it
 if [ $duration -ge 60 ]; then
     minutes=$(($duration / 60))
     seconds=$(($duration % 60))
@@ -301,8 +280,8 @@ printf "    ║  0x8C3F7D1A9B2E6F48C0       ║  ║                            
     
 printf "    ╔══════════════════════════════════════════════════════════════════╗\n"
 printf "    ║                                                                  ║\n"
-printf "    ║  ⚒︎ File $output_file_name generated sucessfully.     \n"
-if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
+printf "    ║  ⚒︎ File $output_file_name generated sucessfully.     \n" # Display the output file name
+if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then # Display the output file name if it is the LV ALL file
         printf "    ║  ⚒︎ File tmp/lv_allminmax.csv generated sucessfully.              ║\n"
 fi
 printf "    ║                                                                  ║    \n"

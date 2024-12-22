@@ -13,7 +13,7 @@ Project report: [PDF](documents/report.pdf) 📑<br>
 
 
 
-1. **🚀 Running the Project**
+*1. **🚀 Running the Project**
    - Execute the project with the following command:
      ```sh
      ./c-wire.sh <CSV File> <Station Type> <Consumer Type> [Power Plant ID]
@@ -22,13 +22,14 @@ Project report: [PDF](documents/report.pdf) 📑<br>
      ```sh
      bash c-wire.sh <CSV File> <Station Type> <Consumer Type> [Power Plant ID]
      ```
-   - Example:
+   - Example command:
      ```sh
-     ./c-wire.sh data.csv hvb comp 1
+     ./c-wire.sh input/c-wire_v00.dat hvb comp 1
      ```
-
+   - Output files will be located in tmp folder
+*
 2. **⚙️ Options**
-   - `<CSV File>`: Path to the CSV file.
+   - `<CSV File>`: Path to the CSV file. (an example input file is located in input folder)
    - `<Station Type>`: Type of station (`hva`, `hvb`, `lv`).
    - `<Consumer Type>`: Type of consumer (`comp`, `indiv`, `all`). Note: `hva` and `hvb` stations only works with `comp` consumers.
    - `[Power Plant ID]`: (Optional) ID of the power plant, must be a positive number.
