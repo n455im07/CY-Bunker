@@ -189,7 +189,7 @@ make -s -C codeC
 if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
 	tail -n +2 "$output_file_name" | sort -t":" -k3 -n  > "tmp/lv_allminmax.csv.tmp" # Sort the output file by consumption without the header
 	
-	# Get the 10 lowest and 10 highest consumptions if there are more than 21 lines
+	#---- Get the 10 lowest and 10 highest consumptions if there are more than 21 lines
 	if [ $(wc -l < "$output_file_name") -gt 21 ]; then 
 		{
 		head -n 10 "tmp/lv_allminmax.csv.tmp"
