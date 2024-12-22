@@ -200,7 +200,7 @@ if [ $station_type == "lv" ] && [ $consumer_type == "all" ]; then
 	fi
 	{
 	head -n 2 "tmp/lv_allminmax.csv"
-	awk -F":" '{diff = $2 - $3; print $1 ":" $2 ":" $3 ":" diff}' "tmp/minmax.csv.tmp" | sort -t":" -k4 -n | cut -d":" -f1-3
+	awk -F":" '{diff = $2 - $3; print $1 ":" $2 ":" $3 ":" diff}' "tmp/minmax.csv.tmp" | sort -t":" -k4 -n | cut -d":" -f1-3 # Using temporary columns to sort the lines
 	} > "tmp/lv_allminmax.csv.tmp" # Get the 2 lines header and the 10 lowest and 10 highest consumptions sorted by difference between consumption and production
 
 	mv "tmp/lv_allminmax.csv.tmp" "tmp/lv_allminmax.csv" # Rename the file
