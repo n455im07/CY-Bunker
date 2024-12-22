@@ -10,8 +10,6 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(TARGET)
 
-	
-
 $(TARGET): $(OBJS)
 	@$(CC) $(OBJS) -o $(TARGET)
 
